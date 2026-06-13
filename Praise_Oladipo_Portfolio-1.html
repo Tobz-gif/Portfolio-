@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praise Oladipo | Medical Writer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #1a7a8a;
+    --teal-light: #d4edf1;
+    --teal-mid: #a8d8df;
+    --dark: #0f1f22;
+    --gray: #4a5c5f;
+    --soft: #f5f9fa;
+    --white: #ffffff;
+    --accent: #c8722a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--soft);
+    color: var(--dark);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--dark);
+    color: var(--white);
+    padding: 80px 40px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,122,138,0.25) 0%, transparent 70%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -40px;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,122,138,0.15) 0%, transparent 70%);
+  }
+
+  .hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    border: 1px solid rgba(168,216,223,0.4);
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 1.05;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal-mid);
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    margin-bottom: 32px;
+    letter-spacing: 0.3px;
+  }
+
+  .hero-contact {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+
+  .hero-contact a {
+    color: var(--teal-mid);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .hero-contact a:hover { color: var(--white); }
+
+  .availability-badge {
+    display: inline-block;
+    margin-top: 28px;
+    background: rgba(26,122,138,0.2);
+    border: 1px solid rgba(26,122,138,0.5);
+    color: var(--teal-mid);
+    font-size: 12px;
+    padding: 8px 20px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid #e0ecee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 40px;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 16px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+
+  nav ul li a:hover {
+    color: var(--teal);
+    border-bottom-color: var(--teal);
+  }
+
+  /* ── LAYOUT ── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  section {
+    padding: 60px 0 20px;
+    border-bottom: 1px solid #ddeaec;
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--teal-light);
+  }
+
+  /* ── ABOUT ── */
+  .about-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--dark);
+    max-width: 680px;
+  }
+
+  .about-text strong {
+    font-weight: 600;
+    color: var(--teal);
+  }
+
+  .interest-box {
+    margin-top: 32px;
+    padding: 22px 28px;
+    background: var(--teal-light);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .interest-box strong { color: var(--dark); }
+
+  /* ── WRITING SAMPLES ── */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 20px;
+  }
+
+  .article-card {
+    background: var(--white);
+    border: 1px solid #ddeaec;
+    border-radius: 10px;
+    padding: 28px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(26,122,138,0.1);
+    border-color: var(--teal-mid);
+  }
+
+  .article-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .article-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .article-card p {
+    font-size: 13.5px;
+    color: var(--gray);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  .read-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal-light);
+    padding-bottom: 2px;
+    transition: gap 0.2s, border-color 0.2s;
+    width: fit-content;
+  }
+
+  .read-link:hover {
+    gap: 12px;
+    border-color: var(--teal);
+  }
+
+  .read-link::after { content: '→'; }
+
+  /* ── EXPERIENCE & VOLUNTEERING ── */
+  .entries { display: flex; flex-direction: column; gap: 28px; }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 24px;
+    padding: 24px;
+    background: var(--white);
+    border: 1px solid #ddeaec;
+    border-radius: 10px;
+  }
+
+  .entry-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .entry-org {
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+
+  .entry-desc {
+    font-size: 13.5px;
+    color: var(--gray);
+    line-height: 1.65;
+    grid-column: 1 / -1;
+  }
+
+  .entry-time {
+    font-size: 12px;
+    color: #9ab5ba;
+    font-weight: 300;
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill-pill {
+    background: var(--white);
+    border: 1px solid #c5dde1;
+    color: var(--gray);
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 24px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .skill-pill:hover {
+    background: var(--teal);
+    color: var(--white);
+    border-color: var(--teal);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 12px;
+    color: #9ab5ba;
+    border-top: 1px solid #ddeaec;
+    background: var(--white);
+  }
+
+  footer a { color: var(--teal); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 60px 24px 50px; }
+    nav ul li a { padding: 14px 14px; font-size: 12px; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .entry { grid-template-columns: 1fr; }
+    .entry-time { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Medical Writer</div>
+    <h1>Praise <em>Oladipo</em></h1>
+    <p class="hero-sub">Preventive Medicine · Maternal Health · Health Communication</p>
+    <div class="hero-contact">
+      <a href="mailto:praiseoluwatobiloba82@gmail.com">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        praiseoluwatobiloba82@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/praise-oladipo-370507344" target="_blank">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="availability-badge">
+      Available for: Freelance Health Writing &nbsp;·&nbsp; Medical Editing &nbsp;·&nbsp; Educational Content
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#volunteering">Volunteering</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About Me</div>
+    <p class="about-text">
+      I am a <strong>500-level medical student</strong> with a passion for health communication and evidence-based writing. My focus is <strong>preventive medicine</strong> — helping people understand their health before problems arise.
+    </p>
+    <p class="about-text" style="margin-top: 18px;">
+      I enjoy translating complex medical concepts into clear, engaging content for two audiences: clinical peers who need precision, and the general public who need clarity. Whether it is a journal-style article or a community health post, I write to inform and empower.
+    </p>
+    <div class="interest-box">
+      <strong>Area of Interest:</strong> Preventive Medicine, with a particular focus on health literacy, early disease detection, maternal and neonatal health, and lifestyle-based interventions. I believe that informed communities make healthier choices, and I aim to bridge that gap through writing and outreach.
+    </div>
+  </section>
+
+  <!-- WRITING SAMPLES -->
+  <section id="writing">
+    <div class="section-label">Writing Samples</div>
+    <div class="articles-grid">
+
+      <div class="article-card">
+        <div class="article-tag">Neonatal Health</div>
+        <h3>Aggressive Feeding in Neonatal Care</h3>
+        <p>An educational article discussing the principles and implications of aggressive feeding practices in neonatal care, exploring the fine balance between adequate nutrition and overfeeding in newborns.</p>
+        <a class="read-link" href="https://docs.google.com/document/d/1TQ43sZpjrm8xpxfPERzTBB-Yez3LZep_/edit?usp=drivesdk&ouid=100041618023603115785&rtpof=true&sd=true" target="_blank">Read article</a>
+      </div>
+
+      <div class="article-card">
+        <div class="article-tag">Maternal Health</div>
+        <h3>Benefits of Booking Early in Pregnancy</h3>
+        <p>A public health article explaining the importance of early antenatal booking and its impact on maternal and fetal outcomes, written for both clinical students and expectant mothers.</p>
+        <a class="read-link" href="https://docs.google.com/document/d/1CgC12mv4DLWFKUTTlwosvmSTney2E-Pg/edit?usp=drivesdk&ouid=100041618023603115785&rtpof=true&sd=true" target="_blank">Read article</a>
+      </div>
+
+      <div class="article-card">
+        <div class="article-tag">Infant Nutrition</div>
+        <h3>Why Formula Feeding is Less Encouraged in Infants</h3>
+        <p>An evidence-based discussion on the limitations of formula feeding and the well-documented benefits of breastfeeding for infant growth, immunity, and long-term health outcomes.</p>
+        <a class="read-link" href="https://docs.google.com/document/d/1UBkmZI6qDFrkiIXR_1edSO9dCmmTjN8E/edit?usp=drivesdk&ouid=100041618023603115785&rtpof=true&sd=true" target="_blank">Read article</a>
+      </div>
+
+      <div class="article-card">
+        <div class="article-tag">Preventive Medicine</div>
+        <h3>What Your Blood Pressure Numbers Actually Mean</h3>
+        <p>A beginner-friendly explanation of systolic and diastolic blood pressure, blood pressure classifications, risk factors, and what different readings may indicate for your long-term health.</p>
+        <a class="read-link" href="https://docs.google.com/document/d/1ujN5C-8nERN6wZFgxaCsM6depyl4eFUi/edit?usp=drivesdk&ouid=100041618023603115785&rtpof=true&sd=true" target="_blank">Read article</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <div class="entries">
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">500-Level Class Editorial Committee</div>
+          <div class="entry-org">College of Medicine and Health Sciences</div>
+        </div>
+        <div class="entry-time">Current</div>
+        <p class="entry-desc">Serve on the editorial committee for my medical school class, contributing to the review, editing, and production of class publications and academic content.</p>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Editorial Committee Member</div>
+          <div class="entry-org">COMHSSA (College of Medicine and Health Sciences Students Association)</div>
+        </div>
+        <div class="entry-time">Current</div>
+        <p class="entry-desc">Support student-led health communication and publications under the association, contributing editorial expertise to outreach and awareness materials.</p>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Independent Health Content Writer</div>
+          <div class="entry-org">Freelance</div>
+        </div>
+        <div class="entry-time">Ongoing</div>
+        <p class="entry-desc">Self-directed health writing covering maternal health, neonatal care, preventive medicine, and public health education. Produces accessible, evidence-based content for both general readers and health science students.</p>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Medical Student Research and Academic Writing</div>
+          <div class="entry-org">College of Medicine and Health Sciences</div>
+        </div>
+        <div class="entry-time">Ongoing</div>
+        <p class="entry-desc">Engaged in research and academic writing as part of medical training, with a focus on evidence synthesis, clinical reasoning, and clear scientific communication.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VOLUNTEERING -->
+  <section id="volunteering">
+    <div class="section-label">Volunteering & Community Engagement</div>
+    <div class="entries">
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Health Awareness Outreach</div>
+          <div class="entry-org">COMHSSA Student-Led Community Screening</div>
+        </div>
+        <div class="entry-time">Recent</div>
+        <p class="entry-desc">Volunteered at a student-organised community health screening, stationed at blood pressure monitoring. Conducted BP checks and engaged students in one-on-one conversations about lifestyle habits, preventive care, and the value of routine health monitoring.</p>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Mental Health Awareness Volunteer</div>
+          <div class="entry-org">The Inner Space Initiative</div>
+        </div>
+        <div class="entry-time">Recent</div>
+        <p class="entry-desc">Participated in mental health awareness events focused on destigmatisation and promoting psychological well-being among students and community members. Contributed to creating safe, supportive spaces for open conversations about mental health.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Skills</div>
+    <div class="skills-grid">
+      <span class="skill-pill">Health Writing</span>
+      <span class="skill-pill">Medical Editing</span>
+      <span class="skill-pill">Public Health Communication</span>
+      <span class="skill-pill">Educational Content Development</span>
+      <span class="skill-pill">Academic Literature Review</span>
+      <span class="skill-pill">Community Health Outreach</span>
+      <span class="skill-pill">Evidence-Based Writing</span>
+      <span class="skill-pill">Maternal & Neonatal Health</span>
+      <span class="skill-pill">Preventive Medicine</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Praise Oladipo &nbsp;·&nbsp; Medical Student & Health Writer &nbsp;·&nbsp; <a href="mailto:praiseoluwatobiloba82@gmail.com">praiseoluwatobiloba82@gmail.com</a></p>
+
+</footer>
+
+</body>
+</html>
